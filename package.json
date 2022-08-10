@@ -1,0 +1,22 @@
+{
+  "name": "cross-repo-action-trigger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tchesa/cross-repo-action-trigger.git"
+  },
+  "author": "tchesa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tchesa/cross-repo-action-trigger/issues"
+  },
+  "homepage": "https://github.com/tchesa/cross-repo-action-trigger#readme",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}
