@@ -5,7 +5,7 @@ info:
   description: >-
     This is a sample server Petstore server. For this sample, you can use the api key
     `special-key` to test the authorization filters.
-  version: 1.0.2
+  version: 1.0.0
   title: OpenAPI Petstore
   license:
     name: Apache-2.0
@@ -19,30 +19,30 @@ tags:
     description: Operations about user
 paths:
   /pet:
-    # post:
-    #   tags:
-    #     - pet
-    #   summary: Add a new pet to the store
-    #   description: ""
-    #   operationId: addPet
-    #   responses:
-    #     "200":
-    #       description: successful operation
-    #       content:
-    #         application/xml:
-    #           schema:
-    #             $ref: "#/components/schemas/Pet"
-    #         application/json:
-    #           schema:
-    #             $ref: "#/components/schemas/Pet"
-    #     "405":
-    #       description: Invalid input
-    #   security:
-    #     - petstore_auth:
-    #         - "write:pets"
-    #         - "read:pets"
-    #   requestBody:
-    #     $ref: "#/components/requestBodies/Pet"
+    post:
+      tags:
+        - pet
+      summary: Add a new pet to the store
+      description: ""
+      operationId: addPet
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/Pet"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+        "405":
+          description: Invalid input
+      security:
+        - petstore_auth:
+            - "write:pets"
+            - "read:pets"
+      requestBody:
+        $ref: "#/components/requestBodies/Pet"
     put:
       tags:
         - pet
