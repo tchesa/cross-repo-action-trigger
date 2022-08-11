@@ -19,30 +19,30 @@ tags:
     description: Operations about user
 paths:
   /pet:
-    post:
-      tags:
-        - pet
-      summary: Add a new pet to the store
-      description: ""
-      operationId: addPet
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/Pet"
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Pet"
-        "405":
-          description: Invalid input
-      security:
-        - petstore_auth:
-            - "write:pets"
-            - "read:pets"
-      requestBody:
-        $ref: "#/components/requestBodies/Pet"
+    # post:
+    #   tags:
+    #     - pet
+    #   summary: Add a new pet to the store
+    #   description: ""
+    #   operationId: addPet
+    #   responses:
+    #     "200":
+    #       description: successful operation
+    #       content:
+    #         application/xml:
+    #           schema:
+    #             $ref: "#/components/schemas/Pet"
+    #         application/json:
+    #           schema:
+    #             $ref: "#/components/schemas/Pet"
+    #     "405":
+    #       description: Invalid input
+    #   security:
+    #     - petstore_auth:
+    #         - "write:pets"
+    #         - "read:pets"
+    #   requestBody:
+    #     $ref: "#/components/requestBodies/Pet"
     put:
       tags:
         - pet
