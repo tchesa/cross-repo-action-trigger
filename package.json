@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -p ./tsconfig.json"
+    "build": "rm -rf generated-sources/openapi; openapi-generator-cli generate -i ./spec.yaml -g typescript-axios -o dist --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tchesa/cross-repo-action-trigger#readme",
   "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.5.1",
     "typescript": "^4.7.4"
   }
 }
