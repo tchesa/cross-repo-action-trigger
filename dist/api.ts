@@ -253,46 +253,6 @@ export const PetApiAxiosParamCreator = function (configuration?: Configuration) 
     return {
         /**
          * 
-         * @summary Add a new pet to the store
-         * @param {Pet} pet Pet object that needs to be added to the store
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addPet: async (pet: Pet, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'pet' is not null or undefined
-            assertParamExists('addPet', 'pet', pet)
-            const localVarPath = `/pet`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication petstore_auth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "petstore_auth", ["write:pets", "read:pets"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(pet, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
          * @summary Deletes a pet
          * @param {number} petId Pet id to delete
          * @param {string} [apiKey] 
@@ -610,17 +570,6 @@ export const PetApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary Add a new pet to the store
-         * @param {Pet} pet Pet object that needs to be added to the store
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async addPet(pet: Pet, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Pet>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addPet(pet, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * 
          * @summary Deletes a pet
          * @param {number} petId Pet id to delete
          * @param {string} [apiKey] 
@@ -714,16 +663,6 @@ export const PetApiFactory = function (configuration?: Configuration, basePath?:
     return {
         /**
          * 
-         * @summary Add a new pet to the store
-         * @param {Pet} pet Pet object that needs to be added to the store
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addPet(pet: Pet, options?: any): AxiosPromise<Pet> {
-            return localVarFp.addPet(pet, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
          * @summary Deletes a pet
          * @param {number} petId Pet id to delete
          * @param {string} [apiKey] 
@@ -808,18 +747,6 @@ export const PetApiFactory = function (configuration?: Configuration, basePath?:
  * @extends {BaseAPI}
  */
 export class PetApi extends BaseAPI {
-    /**
-     * 
-     * @summary Add a new pet to the store
-     * @param {Pet} pet Pet object that needs to be added to the store
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PetApi
-     */
-    public addPet(pet: Pet, options?: AxiosRequestConfig) {
-        return PetApiFp(this.configuration).addPet(pet, options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * 
      * @summary Deletes a pet
