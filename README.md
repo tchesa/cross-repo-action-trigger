@@ -11,4 +11,6 @@ Trigger worflow & Auto commit steps requires Github's access token with reposito
 ## For private repositories
 
 To fetch a file from a private repository, add this header into `curl` command:
-```curl -H 'Authorization: token ${{ secrets.G_ACCESS_TOKEN }}' ...```
+```
+curl -H 'Authorization: token ${{ secrets.G_ACCESS_TOKEN }}' ...
+```
